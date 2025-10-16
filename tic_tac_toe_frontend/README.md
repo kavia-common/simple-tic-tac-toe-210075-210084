@@ -1,82 +1,43 @@
-# Lightweight React Template for KAVIA
+# Ocean Tic Tac Toe (Frontend-Only)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, responsive Tic Tac Toe game built with React and vanilla CSS, themed with the Ocean Professional palette.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- 3x3 board, two local players (X and O), alternate turns
+- Winner and draw detection
+- Prevents invalid moves and plays after game end
+- New Game reset control
+- Responsive, centered layout for mobile and desktop
+- Ocean Professional theme (blue accents, subtle shadows, rounded corners)
+- Lightweight client-side audit-like log (timestamped) in console
 
-## Getting Started
+## Scripts
 
-In the project directory, you can run:
+- `npm start` - Start dev server at http://localhost:3000
+- `npm test` - CRA test runner
+- `npm run build` - Production build
 
-### `npm start`
+## Audit Log
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A lightweight audit-style log records:
+- GAME_START, MOVE, INVALID_MOVE, RESET, GAME_END
 
-### `npm test`
+Use the "View Audit Log" button to print the current in-memory log to the console.
 
-Launches the test runner in interactive watch mode.
+## Accessibility
 
-### `npm run build`
+- Squares are real buttons with aria labels
+- Status has role="status" and aria-live
+- Focus-visible styles for keyboard users
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Code Map
 
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `src/App.js` - App shell, game wiring
+- `src/components/Board.js` - 3x3 grid
+- `src/components/Square.js` - board tile
+- `src/components/StatusBar.js` - status indicator
+- `src/hooks/useTicTacToe.js` - game state and actions
+- `src/utils/game.js` - pure utilities for winner, draw, and guards
+- `src/utils/audit.js` - in-memory audit-like logger
+- `src/App.css` - theme and layout styles
